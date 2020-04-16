@@ -9,8 +9,11 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, dice;
 
 scores = [0, 0];
 roundScore = 0;
 activePlayer = 0; //This will be used later to index in the scores array.
+
+dice = Math.floor(Math.random() * 6) + 1; //Math.floor() removes the decimal of a number. Times 6 plus 1 will give us number BETWEEN 1 and 6. Math.ranom () gives a random number between 0 and 1.
+console.log(dice);
