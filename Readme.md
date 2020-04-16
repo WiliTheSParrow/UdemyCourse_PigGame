@@ -1,5 +1,7 @@
 
-> The Pig Game 🐖 Udemy course: The Complete JavaScript Course 2020: Build Real Projects!
+# THE PIG GAME 🐖
+
+>  Udemy course: The Complete JavaScript Course 2020: Build Real Projects!
 
 
 ## Table of contents
