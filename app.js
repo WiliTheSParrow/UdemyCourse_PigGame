@@ -15,15 +15,9 @@ scores = [0, 0];
 roundScore = 0;
 activePlayer = 1; //This will be used later to index in the scores array.
 
-//dice = Math.floor(Math.random() * 6) + 1; Math.floor() removes the decimal of a number. Times 6 plus 1 will give us number BETWEEN 1 and 6. Math.ranom () gives a random number between 0 and 1.
-
-
-// document.querySelector('#current-' + activePlayer).textContent = dice;
-// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
-// var x = document.querySelector('#score-0').textContent;
-// console.log(x);
-
 document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textContent = '0'; // Here we don't use the CSS style '#', just the ID name. It is good to use IDs, because they are faster.
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     console.log('CLICK');
@@ -37,3 +31,15 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
     // 3. Update the round score IF the rolled number was NOT a 1
 });
+
+
+
+
+
+//dice = Math.floor(Math.random() * 6) + 1; Math.floor() removes the decimal of a number. Times 6 plus 1 will give us number BETWEEN 1 and 6. Math.ranom () gives a random number between 0 and 1.
+
+
+// document.querySelector('#current-' + activePlayer).textContent = dice;
+// document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
+// var x = document.querySelector('#score-0').textContent;
+// console.log(x);
