@@ -18,6 +18,9 @@ activePlayer = 1; //This will be used later to index in the scores array.
 document.querySelector('.dice').style.display = 'none';
 
 document.getElementById('score-0').textContent = '0'; // Here we don't use the CSS style '#', just the ID name. It is good to use IDs, because they are faster.
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     console.log('CLICK');
