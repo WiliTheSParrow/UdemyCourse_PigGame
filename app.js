@@ -11,16 +11,7 @@ GAME RULES:
 
 var scores, roundScore, activePlayer;
 
-scores = [0, 0];
-roundScore = 0;
-activePlayer = 0; //This will be used later to index in the scores array.
-
-document.querySelector('.dice').style.display = 'none';
-
-document.getElementById('score-0').textContent = '0'; // Here we don't use the CSS style '#', just the ID name. It is good to use IDs, because they are faster.
-document.getElementById('score-1').textContent = '0';
-document.getElementById('current-0').textContent = '0';
-document.getElementById('current-1').textContent = '0';
+init();
 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     console.log('CLICK');
@@ -78,7 +69,22 @@ function nextPlayer() {
     document.querySelector('.dice').style.display = 'none';
 }
 
+document.querySelector('.btn-new').addEventListener('click', function () {
 
+});
+
+function init() {
+    scores = [0, 0];
+    roundScore = 0;
+    activePlayer = 0; //This will be used later to index in the scores array.
+
+    document.querySelector('.dice').style.display = 'none';
+
+    document.getElementById('score-0').textContent = '0'; // Here we don't use the CSS style '#', just the ID name. It is good to use IDs, because they are faster.
+    document.getElementById('score-1').textContent = '0';
+    document.getElementById('current-0').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+}
 
 
 //dice = Math.floor(Math.random() * 6) + 1; Math.floor() removes the decimal of a number. Times 6 plus 1 will give us number BETWEEN 1 and 6. Math.ranom () gives a random number between 0 and 1.
