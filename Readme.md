@@ -26,7 +26,8 @@ In this project we learned:
 * What is a callback function;
 * What is an anonymous function;
 * How to change the image in an <img> element;
-* What is the ternary operator.
+* What is the ternary operator;
+* What is a state variable.
 
 This game was built by <a href="https://www.linkedin.com/in/wjulia91/">Julia Wilhelm</a> for Jonas Schmedtmann's online course <a href="https://www.udemy.com/share/101WfeB0cbc1xbTHw=/">The Complete JavaScript Course 2020: Build Real Projects!</a>. Copyright © by Jonas Schmedtmann. 
 
