@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, beforeScore;
 
 init();
 
@@ -18,6 +18,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
         // 1. Random number
         var dice = Math.floor(Math.random() * 6) + 1;
+        // var dice = 6;
 
         // 2. Display the result
         var diceDOM = document.querySelector('.dice');
@@ -26,13 +27,20 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
         // 3. Update the round score IF the rolled number was NOT a 1
         if (dice !== 1) {
-            //Add score
-            roundScore += dice;
-            document.querySelector('#current-' + activePlayer).textContent = roundScore;
+            if (dice === 6 && beforeScore[activePlayer] === 6) {
+                nextPlayer();
+            } else {
+                //Add score
+                roundScore += dice;
+                document.querySelector('#current-' + activePlayer).textContent = roundScore;
+                beforeScore[activePlayer] = dice;
+                //console.log(beforeScore);
+            }
         } else {
             // Next Player (ternary operator is next!)
             nextPlayer();
         }
+
     }
 });
 
@@ -61,6 +69,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 function nextPlayer() {
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     roundScore = 0;
+    beforeScore = [0, 0];
 
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
@@ -81,6 +90,7 @@ function init() {
     roundScore = 0;
     activePlayer = 0; //This will be used later to index in the scores array.
     gamePlaying = true;
+    beforeScore = [0, 0];
 
     document.querySelector('.dice').style.display = 'none';
 
