@@ -9,7 +9,7 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, gamePlaying, beforeScore;
+var scores, roundScore, activePlayer, gamePlaying, beforeScore, scoreMax;
 
 init();
 
@@ -53,7 +53,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
         // Check if player won the game
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= scoreMax) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -85,6 +85,16 @@ function nextPlayer() {
 
 document.querySelector('.btn-new').addEventListener('click', init); // I don't need to call () the function, just pass it to the event listener. It will be called when it is clicked.
 
+function settingScoreMax() {
+    var scoreMaxAsk = prompt("Please enter the maximum score for the game", "100");
+    if (scoreMaxAsk != null) {
+        scoreMax = scoreMaxAsk;
+    } else {
+        scoreMax = 100;
+    }
+    return scoreMax;
+}
+
 function init() {
     scores = [0, 0];
     roundScore = 0;
@@ -105,6 +115,9 @@ function init() {
     document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
+
+    settingScoreMax();
+    //console.log(scoreMax);
 }
 
 
