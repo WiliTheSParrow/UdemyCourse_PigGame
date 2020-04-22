@@ -17,24 +17,41 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     if (gamePlaying) {
 
         // 1. Random number
-        var dice = Math.floor(Math.random() * 6) + 1;
+        //var dice = Math.floor(Math.random() * 6) + 1;
         // var dice = 6;
 
+        var dice1 = Math.floor(Math.random() * 6) + 1;
+        var dice2 = Math.floor(Math.random() * 6) + 1;
+
         // 2. Display the result
-        var diceDOM = document.querySelector('.dice');
+        /* var diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
-        diceDOM.src = 'dice-' + dice + '.png';
+        diceDOM.src = 'dice-' + dice + '.png'; */
+
+        var diceDOM1 = document.getElementById('dice1');
+        var diceDOM2 = document.getElementById('dice2');
+        diceDOM1.style.display = 'block';
+        diceDOM1.src = 'dice-' + dice1 + '.png';
+        diceDOM2.style.display = 'block';
+        diceDOM2.src = 'dice-' + dice2 + '.png';
 
         // 3. Update the round score IF the rolled number was NOT a 1
-        if (dice !== 1) {
-            if (dice === 6 && beforeScore[activePlayer] === 6) {
+        if (dice1 !== 1 && dice2 !== 1) {
+            if (dice1 === 6 && beforeScore[activePlayer] === 6) {
                 nextPlayer();
             } else {
                 //Add score
-                roundScore += dice;
+                roundScore += (dice1 + dice2);
                 document.querySelector('#current-' + activePlayer).textContent = roundScore;
-                beforeScore[activePlayer] = dice;
-                //console.log(beforeScore);
+
+                if (dice1 === 6) {
+                    beforeScore[activePlayer] = dice1;
+                    
+                } else if (dice2 === 6) {
+                    beforeScore[activePlayer] = dice2;
+                } else {
+                    beforeScore[activePlayer] = 0;
+                }
             }
         } else {
             // Next Player (ternary operator is next!)
@@ -55,7 +72,8 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         // Check if player won the game
         if (scores[activePlayer] >= scoreMax) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-            document.querySelector('.dice').style.display = 'none';
+            document.getElementById('dice1').style.display = 'none';
+            document.getElementById('dice2').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
             gamePlaying = false;
@@ -80,7 +98,8 @@ function nextPlayer() {
     /* document.querySelector('.player-0-panel').classList.remove('active');
     document.querySelector('.player-1-panel').classList.add('active'); */
 
-    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('dice1').style.display = 'none';
+    document.getElementById('dice2').style.display = 'none';
 }
 
 document.querySelector('.btn-new').addEventListener('click', init); // I don't need to call () the function, just pass it to the event listener. It will be called when it is clicked.
@@ -102,7 +121,8 @@ function init() {
     gamePlaying = true;
     beforeScore = [0, 0];
 
-    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('dice1').style.display = 'none';
+    document.getElementById('dice2').style.display = 'none';
 
     document.getElementById('score-0').textContent = '0'; // Here we don't use the CSS style '#', just the ID name. It is good to use IDs, because they are faster.
     document.getElementById('score-1').textContent = '0';
