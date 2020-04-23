@@ -37,7 +37,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
         // 3. Update the round score IF the rolled number was NOT a 1
         if (dice1 !== 1 && dice2 !== 1) {
-            if (dice1 === 6 && beforeScore[activePlayer] === 6) {
+            if (dice1 === 6 && beforeScore[activePlayer] === 6 || dice2 === 6 && beforeScore[activePlayer] === 6) {
                 nextPlayer();
             } else {
                 //Add score
@@ -46,7 +46,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 
                 if (dice1 === 6) {
                     beforeScore[activePlayer] = dice1;
-                    
+
                 } else if (dice2 === 6) {
                     beforeScore[activePlayer] = dice2;
                 } else {
@@ -57,7 +57,6 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
             // Next Player (ternary operator is next!)
             nextPlayer();
         }
-
     }
 });
 
@@ -104,7 +103,7 @@ function nextPlayer() {
 
 document.querySelector('.btn-new').addEventListener('click', init); // I don't need to call () the function, just pass it to the event listener. It will be called when it is clicked.
 
-function settingScoreMax() {
+/* function settingScoreMax() {
     var scoreMaxAsk = prompt("Please enter the maximum score for the game", "100");
     if (scoreMaxAsk != null) {
         scoreMax = scoreMaxAsk;
@@ -112,7 +111,7 @@ function settingScoreMax() {
         scoreMax = 100;
     }
     return scoreMax;
-}
+} */
 
 function init() {
     scores = [0, 0];
