@@ -203,3 +203,23 @@ i {
     font-weight: 300;
     color: #EB4D4D;
 }
+
+.copyright {
+    display: flex;
+    width: 100%;
+    border: 1px solid wheat;
+    position: absolute;
+    bottom: 0;
+    padding: .5rem;
+    text-align: center;
+}
+
+.copyright-text {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.copyright-text-link {
+
+    color: #fff;
+}
