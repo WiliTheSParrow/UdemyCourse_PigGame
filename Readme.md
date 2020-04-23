@@ -7,6 +7,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Visit the page!](#Click-on-the-link-below-to-check-out-this-project)
 * [Features](#features)
 * [Status](#status)
 * [Contact](#contact)
@@ -36,11 +37,14 @@ This game was built by <a href="https://www.linkedin.com/in/wjulia91/">Julia Wil
 * CSS
 * JavaScript
 
+## Click on the link below to check out this project
+<a href="https://piggame-by-julia-wilhelm.web.app/">link</a>
+
 ## Features
 * Version 1.0
 
 ## Status
-Project is: _ongoing_
+Project is: _finished_
 
 ## Contact
 Created by [@wjulia91](https://www.linkedin.com/in/wjulia91/) - feel free to contact me!
