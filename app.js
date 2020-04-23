@@ -69,10 +69,18 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
         var input = document.querySelector('.final-score').value;
-        console.log(input);
+        var winningScore;
+
+        // Undefined, 0, null or "" are COERCED to false
+        // Anything else is COERCED to true
+        if (input) {
+            winningScore = input;
+        } else {
+            winningScore = 100;
+        }
 
         // Check if player won the game
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= winningScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.getElementById('dice1').style.display = 'none';
             document.getElementById('dice2').style.display = 'none';
@@ -138,7 +146,7 @@ function init() {
     document.querySelector('.player-1-panel').classList.remove('active');
     document.querySelector('.player-0-panel').classList.add('active');
 
-    
+
     //console.log(scoreMax);
 }
 
